@@ -4,10 +4,10 @@ const { authenticate } = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-router.post('/register', registerProfile);
+// router.post('/register', registerProfile);
 
 // if we want to add middleware authentication for registration
-// router.post('/register', authenticate, registerProfile); 
+router.post('/register', authenticate, registerProfile); 
 
 router.get('/match', authenticate, matchProfiles);
 

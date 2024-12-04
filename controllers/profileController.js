@@ -18,14 +18,14 @@ exports.registerProfile = (req, res) => {
 };
 
 exports.matchProfiles = (req, res) => {
-    const { industry, location } = req.query;
+    const { industry, location } = req.body;
 
     if (!industry || !location) {
         return res.status(400).json({ message: 'Missing query parameters' });
     }
 
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const page = parseInt(req.body.page) || 1;
+    const limit = parseInt(req.body.limit) || 10;
 
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;

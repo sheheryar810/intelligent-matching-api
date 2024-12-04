@@ -6,7 +6,7 @@ exports.login = (req, res) => {
     if (!username || !password) {
         return res.status(400).json({ message: 'Username and password are required' });
     } else if (username === 'test' && password === 'password') {
-        const token = jwt.sign({ username }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ username }, process.env.JWT_SECRET, { expiresIn: '12h' });
         return res.json({ token });
     }else if (username === 'newtest' && password === 'password') {
         return res.status(400).json({ message: 'Invalid username' });
